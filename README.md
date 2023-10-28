@@ -41,18 +41,14 @@ for (let i = 0; i < s.length; i++) {
     }
 }
 ```
-- For each character in the string s, if that character matches the current character in `test` (indicated by the count index), we increment the count.
-- By doing this, we're trying to sequentially match each character from the `test` string in the order they appear in s.
+- For each character in the string `s`, if that character matches the current character in `test` (indicated by the count index), we increment the count.
+- By doing this, we're trying to sequentially match each character from the `test` string in the order they appear in `s`.
 ```javaScript
 return test.length === count ? "YES" : "NO";
 ```
-- After looping through s, if we have matched every character in `test` (meaning count is equal to the length of `test`), then we return "YES".
+- After looping through `s`, if we have matched every character in `test` (meaning count is equal to the length of `test`), then we return "YES".
 - If not all characters were matched (i.e., count is less than the length of `test`), then we return "NO".
 ****
-
-Certainly, let's format the explanation suitable for a GitHub readme:
-
----
 
 ## 2. Palindrome Index
   - [Problem](https://www.hackerrank.com/challenges/palindrome-index/problem?isFullScreen=true)
@@ -94,3 +90,4 @@ s.substring(0, i) + s.substring(i + 1) === r.substring(0, s.length - 1 - i) + r.
 - If a match is found, meaning removal of the character at index `i` of `s` creates a palindrome, the function returns `i`.
 
 ****
+
