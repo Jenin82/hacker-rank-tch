@@ -3,8 +3,6 @@
 >The repository contains the solutions to various HackerRank problems. Each solution includes a reference to the problem statement and is well-documented, to explain the logic and approach.
 
 
-
-
 ## Solution Approach
 
 >Following are the problems I solved in HackerRank to reach a rank under 10k from 20k.
@@ -88,7 +86,6 @@ s.substring(0, i) + s.substring(i + 1) === r.substring(0, s.length - 1 - i) + r.
 - For each character at position `i`, the function checks if removing that character would result in a palindrome. 
 - It does so by comparing the string `s` (minus the character at index `i`) to the reversed string `r` (minus the character at the corresponding position).
 - If a match is found, meaning removal of the character at index `i` of `s` creates a palindrome, the function returns `i`.
-
 ****
 
 ## 3. Anagram Challenge
@@ -142,9 +139,6 @@ return secondHalf.length;
 - After the loop completes, the length of the `secondHalf` array represents the number of characters that did not find a match in the first half, which is equal to the number of changes required to make the first half an anagram of the second half.
 
 ****
-Sure, let's format the explanation in the style suitable for a GitHub readme:
-
----
 
 ## 4. Making Anagrams
   - [Problem](https://www.hackerrank.com/challenges/making-anagrams/problem?isFullScreen=true)
@@ -300,4 +294,57 @@ if (s2.includes(item)) {
 return "NO";
 ```
 - If the loop completes without finding a common character, that means `s1` and `s2` do not have a common substring and the function returns "NO".
+****
+
+## 7. String Construction
+  - [Problem](https://www.hackerrank.com/challenges/string-construction/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/string-construction.js)
+  - Explanation:
+  > The `stringConstruction` function determines the minimum cost to construct a string `s`. According to the problem's requirements, appending a character from the original string to a new string costs $1, but appending a character you've already appended before is free. The function returns the total cost.
+
+```javascript
+function stringConstruction(s) {
+    let res = "";
+    let dollar = 0;
+    for (let i of s) {
+        if (!res.includes(i)) {
+            dollar++;
+        }
+        res += i;
+    }
+    return dollar;
+}
+```
+Here's a breakdown of the function:
+```javascript
+let res = "";
+let dollar = 0;
+```
+- `res` is an empty string that will be used to construct the new string from characters of `s`.
+- `dollar` is a counter initialized to zero, which will be used to keep track of the total cost.
+
+```javascript
+for (let i of s) {
+    ...
+}
+```
+- The function uses a for-of loop to traverse each character in the string `s`.
+
+```javascript
+if (!res.includes(i)) {
+    dollar++;
+}
+```
+- For each character from `s`, the function checks if that character already exists in the `res` string using the `includes` method.
+- If the character doesn't exist in `res`, that means it's the first time we're adding this character, so we need to pay $1 and the `dollar` counter is incremented.
+
+```javascript
+res += i;
+```
+- Regardless of whether we paid for the character or not, we append it to the `res` string.
+
+```javascript
+return dollar;
+```
+- After processing all characters in `s`, the function returns the total cost, which is stored in the `dollar` variable.
 ****
