@@ -10,7 +10,7 @@
 >Following are the problems I solved in HackerRank to reach a rank under 10k from 20k.
 
 ---
-## 3.Grading Students
+## 1. HackerRank in a String!
   - [Problem](https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?isFullScreen=true)
   - [Solution](Grading_Students/gradingstudents.py)
   - Explanation:
