@@ -91,3 +91,55 @@ s.substring(0, i) + s.substring(i + 1) === r.substring(0, s.length - 1 - i) + r.
 
 ****
 
+## 3. Anagram Challenge
+  - [Problem](https://www.hackerrank.com/challenges/anagram/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/anagram.js)
+  - Explanation:
+  > The `anagram` function determines how many characters one would need to change in the first half of the string `s` to make it an anagram of the second half. If the string length is odd, it cannot be split into two equal halves, and the function returns `-1`.
+
+```javascript
+function anagram(s) {
+    if (s.length % 2 !== 0) {
+        return -1;
+    }
+    let secondHalf = s.slice(s.length / 2).split("");
+    for (const char of s.slice(0, s.length / 2)) {
+        if (secondHalf.includes(char)) {
+            secondHalf.splice(secondHalf.indexOf(char), 1);
+        }
+    }
+    return secondHalf.length;
+}
+```
+Here's a breakdown of the function:
+```javascript
+if (s.length % 2 !== 0) {
+    return -1;
+}
+```
+- The function first checks if the string's length is odd. If it is, you can't split it into two equal halves to compare, and the function returns `-1`.
+
+```javascript
+let secondHalf = s.slice(s.length / 2).split("");
+for (const char of s.slice(0, s.length / 2)) {
+    ...
+}
+```
+- The function divides `s` into two equal halves. The second half is split into individual characters and stored in the array `secondHalf`.
+- It then iterates over each character in the first half of `s`.
+
+```javascript
+if (secondHalf.includes(char)) {
+    secondHalf.splice(secondHalf.indexOf(char), 1);
+}
+```
+- For each character in the first half of `s`, the function checks if that character exists in `secondHalf`.
+- If it does, that character is removed from `secondHalf` using the `splice` method. This implies that the character from the first half matches a character in the second half, so no change is required for that specific character.
+
+4. **Determine Number of Changes Required**:
+```javascript
+return secondHalf.length;
+```
+- After the loop completes, the length of the `secondHalf` array represents the number of characters that did not find a match in the first half, which is equal to the number of changes required to make the first half an anagram of the second half.
+
+****
