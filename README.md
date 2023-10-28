@@ -1,20 +1,19 @@
 # Here is my HackerRank Solutions
 
->The repository contains the solutions to various HackerRank problems.Organize the solutions so they are easy to navigate and understand. Each solution includes a reference to the problem statement and is well-documented to explain the logic and approach.
+>The repository contains the solutions to various HackerRank problems. Each solution includes a reference to the problem statement and is well-documented, to explain the logic and approach.
 
 
 
 
 ## Solution Approach
 
->In the "Solution Approach" section, provide a detailed explanation of your approach to solving the problem. Describe the algorithm, data structures, and any key insights that led to your solution. This helps others understand your thought process and learn from your solutions.
+>Following are the problems i solved in HackerRank to reach a rank under 10k from 20k.
 
 ### Problem 1
 
 
   - [Problem](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)(navigate to the Problem)
   - [Solution](./solution.py) (navigate to the Solution file)
-  <a href="https://example.com" target="_blank" rel="noopener noreferrer">Link text</a>
   - Explanation: (Explain your problem-solving approach in detail)
   
 ### Problem 2
