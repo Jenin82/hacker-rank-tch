@@ -263,3 +263,41 @@ return "YES";
 ```
 - If the loop completes without finding more than one character with an odd frequency, it means the string `s` can be rearranged into a palindrome, and the function returns "YES".
 ****
+
+## 6. Two Strings - Common Substring Check
+  - [Problem](https://www.hackerrank.com/challenges/two-strings/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/two-strings.js)
+  - Explanation:
+  > The `twoStrings` function determines if two strings, `s1` and `s2`, share a common substring. A substring can be as short as one character. If they have at least one common character, the function returns "YES", otherwise it returns "NO".
+
+```javascript
+function twoStrings(s1, s2) {
+    for (let item of s1) {
+        if (s2.includes(item)) {
+            return "YES";
+        }
+    }
+    return "NO";
+}
+```
+Here's a breakdown of the function:
+```javascript
+for (let item of s1) {
+    ...
+}
+```
+- The function uses a for-of loop to traverse each character in the string `s1`.
+
+```javascript
+if (s2.includes(item)) {
+    return "YES";
+}
+```
+- For each character from `s1`, the function checks if that character exists in the string `s2` using the `includes` method.
+- If it does, that means `s1` and `s2` share a common substring (the character itself) and the function returns "YES".
+
+```javascript
+return "NO";
+```
+- If the loop completes without finding a common character, that means `s1` and `s2` do not have a common substring and the function returns "NO".
+****
