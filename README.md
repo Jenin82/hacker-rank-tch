@@ -14,7 +14,7 @@
   - [Problem](https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?isFullScreen=true)
   - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/hackerrank-in-a-string.js)
   - Explanation:
-  > The function hackerrankInString is designed to determine if the string "hackerrank" can be spelled out by picking characters sequentially (though not necessarily consecutively) from the given string s. If it can, the function returns "YES"; otherwise, it returns "NO".
+  > The function `hackerrankInString` is designed to determine if the string "hackerrank" can be spelled out by picking characters sequentially (though not necessarily consecutively) from the given string `s`. If it can, the function returns "YES"; otherwise, it returns "NO".
 ```javaScript
     function hackerrankInString(s) {
     let test = "hackerrank";
@@ -32,8 +32,8 @@ Here's a breakdown of the function:
 let test = "hackerrank";
 let count = 0;
 ```
-- "test" is the target string that we want to find within s.
-- "count" will be used to keep track of the current position we're at within the test string.
+- `test` is the target string that we want to find within `s`.
+- `count` will be used to keep track of the current position we're at within the `test` string.
 ```javaScript
 for (let i = 0; i < s.length; i++) {
     if (s[i] == test[count]) {
@@ -41,13 +41,13 @@ for (let i = 0; i < s.length; i++) {
     }
 }
 ```
-- For each character in the string s, if that character matches the current character in test (indicated by the count index), we increment the count.
-- By doing this, we're trying to sequentially match each character from the test string in the order they appear in s.
+- For each character in the string s, if that character matches the current character in `test` (indicated by the count index), we increment the count.
+- By doing this, we're trying to sequentially match each character from the `test` string in the order they appear in s.
 ```javaScript
 return test.length === count ? "YES" : "NO";
 ```
-- After looping through s, if we have matched every character in test (meaning count is equal to the length of test), then we return "YES".
-- If not all characters were matched (i.e., count is less than the length of test), then we return "NO".
+- After looping through s, if we have matched every character in `test` (meaning count is equal to the length of `test`), then we return "YES".
+- If not all characters were matched (i.e., count is less than the length of `test`), then we return "NO".
 ****
 
 Certainly, let's format the explanation suitable for a GitHub readme:
