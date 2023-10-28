@@ -196,3 +196,70 @@ return (s2.length + s1.length) - (commonItems * 2);
 - The total number of deletions required to make the two strings anagrams is equal to the sum of their lengths minus twice the number of common characters (since each common character exists in both strings).
 - This result gives us the number of characters that are not in common between the two strings and hence need to be deleted.
 ****
+
+## 5. Game of Thrones - Palindrome Check
+  - [Problem](https://www.hackerrank.com/challenges/game-of-thrones/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/game-of-thrones.js)
+  - Explanation:
+  > The function `gameOfThrones` checks if the given string `s` can be rearranged to form a palindrome. It does this by ensuring that there's at most one character with an odd frequency. If it's possible to form a palindrome, the function returns "YES", otherwise it returns "NO".
+
+```javascript
+function gameOfThrones(s) {
+    let oddcount = 0;
+    while (s.length > 0) {
+        const char = s[0];
+        const count = s.split(char).length - 1;
+        if (count % 2 !== 0) {
+            oddcount++;
+        }
+        s = s.replace(new RegExp(char, 'g'), '');
+        if (oddcount > 1) {
+            return "NO";
+        }
+    }
+    return "YES";
+}
+```
+Here's a breakdown of the function:
+```javascript
+let oddcount = 0;
+```
+- `oddcount` is a counter that will keep track of the number of characters in the string `s` that have an odd frequency.
+
+```javascript
+while (s.length > 0) {
+    ...
+}
+```
+- The function uses a while loop to process each unique character in the string `s`.
+
+```javascript
+const char = s[0];
+const count = s.split(char).length - 1;
+```
+- It takes the first character of the current string `s` and determines how many times that character appears in the string.
+
+```javascript
+if (count % 2 !== 0) {
+    oddcount++;
+}
+```
+- If the character frequency is odd, it increments the `oddcount`.
+
+```javascript
+s = s.replace(new RegExp(char, 'g'), '');
+```
+- After processing a character, all its occurrences are removed from the string `s` so that the loop can process the next character.
+
+```javascript
+if (oddcount > 1) {
+    return "NO";
+}
+```
+- For a string to be rearranged into a palindrome, there should be at most one character with an odd frequency. If there's more than one, it's impossible to rearrange the string as a palindrome, and the function returns "NO".
+
+```javascript
+return "YES";
+```
+- If the loop completes without finding more than one character with an odd frequency, it means the string `s` can be rearranged into a palindrome, and the function returns "YES".
+****
