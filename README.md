@@ -7,26 +7,12 @@
 
 ## Solution Approach
 
->Following are the problems i solved in HackerRank to reach a rank under 10k from 20k.
+>Following are the problems I solved in HackerRank to reach a rank under 10k from 20k.
 
-### Problem 1
-
-
-  - [Problem](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)(navigate to the Problem)
-  - [Solution](./solution.py) (navigate to the Solution file)
-  - Explanation: (Explain your problem-solving approach in detail)
-  
-### Problem 2
-
-  - [Problem](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)(navigate to the Problem)
-  - [Solution](./solution.py)(navigate to the Solution file)
-  - Explanation: (Explain your problem-solving approach in detail)
-
-### Example  
 ---
 ## 3.Grading Students
-  - [Problem](https://www.hackerrank.com/challenges/grading/problem?isFullScreen=true)(navigate to the Problem)
-  - [Solution](Grading_Students/gradingstudents.py) (navigate to the Solution file)
+  - [Problem](https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?isFullScreen=true)
+  - [Solution](Grading_Students/gradingstudents.py)
   - Explanation:
   > In this problem, I created a program that takes input for the number of grades to be entered, and then prompts the user to enter each grade. The program then rounds each grade according to a specific rule and prints the rounded grades.
 ```python
