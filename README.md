@@ -136,10 +136,63 @@ if (secondHalf.includes(char)) {
 - For each character in the first half of `s`, the function checks if that character exists in `secondHalf`.
 - If it does, that character is removed from `secondHalf` using the `splice` method. This implies that the character from the first half matches a character in the second half, so no change is required for that specific character.
 
-4. **Determine Number of Changes Required**:
 ```javascript
 return secondHalf.length;
 ```
 - After the loop completes, the length of the `secondHalf` array represents the number of characters that did not find a match in the first half, which is equal to the number of changes required to make the first half an anagram of the second half.
 
+****
+Sure, let's format the explanation in the style suitable for a GitHub readme:
+
+---
+
+## 4. Making Anagrams
+  - [Problem](https://www.hackerrank.com/challenges/making-anagrams/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/making-anagrams.js)
+  - Explanation:
+  > The `makingAnagrams` function calculates the minimum number of character deletions required to make two strings, `s1` and `s2`, anagrams of each other.
+
+```javascript
+function makingAnagrams(s1, s2) {
+    let s1List = [...s1];
+    let s2List = [...s2];
+    let commonItems = 0;
+
+    for (let item of s1List) {
+        let index = s2List.indexOf(item);
+        if (index !== -1) {
+            s2List.splice(index, 1);
+            commonItems++;
+        }
+    }
+    return (s2.length + s1.length) - (commonItems * 2);
+}
+```
+Here's a breakdown of the function:
+```javascript
+let s1List = [...s1];
+let s2List = [...s2];
+let commonItems = 0;
+```
+- `s1List` and `s2List` are arrays created from the strings `s1` and `s2` respectively, allowing for easy manipulation and traversal of individual characters.
+- `commonItems` is a counter initialized to zero, which will be used to count the number of characters that the two strings have in common.
+
+```javascript
+for (let item of s1List) {
+    let index = s2List.indexOf(item);
+    if (index !== -1) {
+        s2List.splice(index, 1);
+        commonItems++;
+    }
+}
+```
+- The function iterates over each character in `s1List`.
+- For each character, it checks if it exists in `s2List`.
+- If it does, that character is removed from `s2List` using the `splice` method and the `commonItems` counter is incremented.
+
+```javascript
+return (s2.length + s1.length) - (commonItems * 2);
+```
+- The total number of deletions required to make the two strings anagrams is equal to the sum of their lengths minus twice the number of common characters (since each common character exists in both strings).
+- This result gives us the number of characters that are not in common between the two strings and hence need to be deleted.
 ****
