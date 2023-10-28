@@ -14,7 +14,7 @@
   - [Problem](https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem?isFullScreen=true)
   - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/hackerrank-in-a-string.js)
   - Explanation:
-  > In this problem, I created a program that takes input for the number of grades to be entered, and then prompts the user to enter each grade. The program then rounds each grade according to a specific rule and prints the rounded grades.
+  > The function hackerrankInString is designed to determine if the string "hackerrank" can be spelled out by picking characters sequentially (though not necessarily consecutively) from the given string s. If it can, the function returns "YES"; otherwise, it returns "NO".
 ```javaScript
     function hackerrankInString(s) {
     let test = "hackerrank";
@@ -27,8 +27,6 @@
     return test.length === count ? "YES" : "NO";
 }
 ```
-The function hackerrankInString is designed to determine if the string "hackerrank" can be spelled out by picking characters sequentially (though not necessarily consecutively) from the given string s. If it can, the function returns "YES"; otherwise, it returns "NO".
-
 Here's a breakdown of the function:
 ```javaScript
 let test = "hackerrank";
@@ -50,4 +48,47 @@ return test.length === count ? "YES" : "NO";
 ```
 - After looping through s, if we have matched every character in test (meaning count is equal to the length of test), then we return "YES".
 - If not all characters were matched (i.e., count is less than the length of test), then we return "NO".
+****
+
+Certainly, let's format the explanation suitable for a GitHub readme:
+
+---
+
+## 2. Palindrome Index
+  - Explanation:
+  > The function `palindromeIndex` determines if there is an index in a given string `s` where, if its character is removed, the string would become a palindrome. If the string is already a palindrome, it returns `-1`. If such a character exists, its index is returned. 
+
+```javascript
+function palindromeIndex(s) {
+    const r = s.split("").reverse().join("");
+    if (s === r) {
+        return -1;
+    }
+    for (let i = 0; i < s.length; ++i) {
+        if (
+            s.substring(0, i) + s.substring(i + 1) === r.substring(0, s.length - 1 - i) + r.substring(s.length - i)
+        ) {
+            return i;
+        }
+    }
+}
+```
+Here's a breakdown of the function:
+```javascript
+const r = s.split("").reverse().join("");
+if (s === r) {
+    return -1;
+}
+```
+- Here, the string `s` is split into individual characters, reversed, and then joined back. This reversed string is stored in `r`.
+- If `s` is equal to its reverse `r`, then it's already a palindrome. Thus, the function returns `-1`.
+
+```javascript
+s.substring(0, i) + s.substring(i + 1) === r.substring(0, s.length - 1 - i) + r.substring(s.length - i)
+```
+- The function iterates through each character in `s`.
+- For each character at position `i`, the function checks if removing that character would result in a palindrome. 
+- It does so by comparing the string `s` (minus the character at index `i`) to the reversed string `r` (minus the character at the corresponding position).
+- If a match is found, meaning removal of the character at index `i` of `s` creates a palindrome, the function returns `i`.
+
 ****
