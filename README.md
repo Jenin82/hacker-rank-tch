@@ -55,6 +55,8 @@ Certainly, let's format the explanation suitable for a GitHub readme:
 ---
 
 ## 2. Palindrome Index
+  - [Problem](https://www.hackerrank.com/challenges/palindrome-index/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/palindrome-index.js)
   - Explanation:
   > The function `palindromeIndex` determines if there is an index in a given string `s` where, if its character is removed, the string would become a palindrome. If the string is already a palindrome, it returns `-1`. If such a character exists, its index is returned. 
 
