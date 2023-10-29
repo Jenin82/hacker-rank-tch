@@ -493,3 +493,61 @@ return sortedList
 - The function filters out pairs from `sortedList` that have a difference other than the minimum difference found.
 - After filtering, the array of pairs is flattened to produce the final output.
 ****
+
+## 11. Missing Numbers
+  - [Problem](https://www.hackerrank.com/challenges/missing-numbers/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/missing-numbers.js)
+  - Explanation:
+  > The `missingNumbers` function is designed to determine the numbers that are missing from array `arr` when compared with array `brr`.
+
+```javascript
+function missingNumbers(arr, brr) {
+    let freqArr = {};
+    let freqBrr = {};
+    let missing = [];
+    for (let num of arr) {
+        freqArr[num] = (freqArr[num] || 0) + 1;
+    }
+    for (let num of brr) {
+        freqBrr[num] = (freqBrr[num] || 0) + 1;
+    }
+    for (let num in freqBrr) {
+        if (!freqArr[num] || freqArr[num] < freqBrr[num]) {
+            missing.push(parseInt(num));
+        }
+    }
+    return missing;
+}
+```
+Here's a breakdown of the function:
+```javascript
+let freqArr = {};
+let freqBrr = {};
+```
+- Two frequency maps are initialized: `freqArr` for the `arr` array and `freqBrr` for the `brr` array. These maps will keep track of how many times each number appears in their respective arrays.
+
+```javascript
+for (let num of arr) {
+    freqArr[num] = (freqArr[num] || 0) + 1;
+}
+for (let num of brr) {
+    freqBrr[num] = (freqBrr[num] || 0) + 1;
+}
+```
+- Populate the frequency maps by iterating over the arrays.
+
+```javascript
+for (let num in freqBrr) {
+    if (!freqArr[num] || freqArr[num] < freqBrr[num]) {
+        missing.push(parseInt(num));
+    }
+}
+```
+- Iterate over the keys (numbers) in `freqBrr` (since `brr` is the reference array).
+- For each number, if it doesn't exist in `freqArr` or its frequency in `freqArr` is less than its frequency in `freqBrr`, then it's considered a missing number. It's added to the `missing` array after being parsed to an integer (since object keys are string-typed).
+
+```javascript
+return missing;
+```
+- The function returns the `missing` array, which contains the numbers that are absent or less frequent in `arr` as compared to `brr`.
+****
