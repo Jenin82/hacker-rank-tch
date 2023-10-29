@@ -551,3 +551,52 @@ return missing;
 ```
 - The function returns the `missing` array, which contains the numbers that are absent or less frequent in `arr` as compared to `brr`.
 ****
+
+## 12. Ice Cream Parlor
+  - [Problem](https://www.hackerrank.com/challenges/icecream-parlor/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/icecream-parlor.js)
+  - Explanation:
+  > The `icecreamParlor` function seeks to determine the two distinct ice cream flavors from the `arr` that sum up to a given amount `m`. The function assumes there is always a unique solution and returns the 1-indexed positions of these two flavors. The solution uses a hash-based approach to keep track of previously seen ice cream flavors and their respective indices.
+
+```javascript
+function icecreamParlor(m, arr) {
+    const iceCream = {};
+    for (let i = 0; i < arr.length; i++) {
+        const complement = m - arr[i];
+        if (iceCream[complement]) {
+            return [iceCream[complement], i + 1];
+        }
+        iceCream[arr[i]] = i + 1;
+    }
+}
+```
+Here's a breakdown of the function:
+```javascript
+const iceCream = {};
+```
+- The `iceCream` object is used as a map to keep track of ice cream flavors we've seen so far and their 1-indexed positions in `arr`.
+
+```javascript
+for (let i = 0; i < arr.length; i++) {
+```
+- Loop through each ice cream flavor in the array.
+
+```javascript
+const complement = m - arr[i];
+```
+- For each flavor, calculate its complement by subtracting the flavor's price from `m`. The complement represents the price of the second flavor we are looking for.
+
+```javascript
+if (iceCream[complement]) {
+    return [iceCream[complement], i + 1];
+}
+```
+- If the complement flavor exists in the `iceCream` map, this means we have found our two flavors. We return their 1-indexed positions as an array.
+
+```javascript
+iceCream[arr[i]] = i + 1;
+```
+- If the complement isn't found, we store the current flavor's 1-indexed position in the `iceCream` map.
+
+The function concludes after either returning the pair of flavors or after iterating through all flavors in `arr`.
+****
