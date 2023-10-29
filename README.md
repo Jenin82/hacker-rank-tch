@@ -423,10 +423,6 @@ else {
 - If there are more than two unique frequencies, it's impossible for the string to be valid as per the given constraints, so the function returns "NO".
 ****
 
-Sure, here's the explanation for the function formatted for a GitHub readme:
-
----
-
 ## 9. Find Median
   - [Problem](https://www.hackerrank.com/challenges/find-the-median/problem?isFullScreen=true)
   - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/find-the-median.js)
@@ -450,4 +446,56 @@ return arr[Math.floor(arr.length / 2)];
 ```
 - After sorting, the median value can be found at the middle index of the array. 
 - For an array with an odd length, `Math.floor(arr.length / 2)` gives the exact middle index. 
+****
+Certainly! Here's the explanation for the `closestNumbers` function in the format suitable for a GitHub readme:
+
+---
+
+## 10. Closest Numbers
+  - [Problem](https://www.hackerrank.com/challenges/closest-numbers/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/closest-numbers.js)
+  - Explanation:
+  > The `closestNumbers` function takes an array `arr` and returns a list of all pairs of numbers from the array that have the smallest absolute difference between them. These pairs are returned as a flattened array in ascending order.
+
+```javascript
+function closestNumbers(arr) {
+    let minimum = 0;
+    arr.sort((a, b) => a - b);
+    let sortedList = [];
+    for (let index = 0; index < arr.length - 1; index++) {
+        sortedList.push([arr[index], arr[index + 1]]);
+        if (index === 0 || arr[index + 1] - arr[index] < minimum) {
+            minimum = arr[index + 1] - arr[index];
+        }
+    }
+    return sortedList
+        .filter(pair => pair[1] - pair[0] === minimum)
+        .flat();
+}
+```
+Here's a breakdown of the function:
+```javascript
+arr.sort((a, b) => a - b);
+```
+- The array `arr` is sorted in ascending order to make it easier to find pairs with the smallest difference.
+
+```javascript
+let sortedList = [];
+for (let index = 0; index < arr.length - 1; index++) {
+    sortedList.push([arr[index], arr[index + 1]]);
+    if (index === 0 || arr[index + 1] - arr[index] < minimum) {
+        minimum = arr[index + 1] - arr[index];
+    }
+}
+```
+- A list called `sortedList` is populated with consecutive number pairs from the sorted array.
+- During this process, the function also finds the smallest difference between consecutive numbers and stores it in the `minimum` variable.
+
+```javascript
+return sortedList
+    .filter(pair => pair[1] - pair[0] === minimum)
+    .flat();
+```
+- The function filters out pairs from `sortedList` that have a difference other than the minimum difference found.
+- After filtering, the array of pairs is flattened to produce the final output.
 ****
