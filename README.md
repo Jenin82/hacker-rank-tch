@@ -600,3 +600,67 @@ iceCream[arr[i]] = i + 1;
 
 The function concludes after either returning the pair of flavors or after iterating through all flavors in `arr`.
 ****
+
+## 13. Balanced Sums
+  - [Problem](https://www.hackerrank.com/challenges/sherlock-and-array/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/sherlock-and-array.js)
+  - Explanation:
+  > The `balancedSums` function aims to determine if there exists an element in the array, `arr`, for which the sum of all elements to the left is equal to the sum of all elements to the right. If such an element exists, the function returns "YES"; otherwise, it returns "NO". The function uses a two-pass algorithm: the first pass calculates the total sum of `arr`, and the second pass checks for the balance by adjusting the left sum and right sum.
+
+```javascript
+function balancedSums(arr) {
+    let leftSum = 0;
+    let totalSum = arr.reduce((acc, val) => acc + val, 0);
+
+    for (let i = 0; i < arr.length; i++) {
+        let rightSum = totalSum - leftSum - arr[i];
+        if (leftSum === rightSum) {
+            return "YES";
+        } else {
+            leftSum += arr[i];
+        }
+    }
+    return "NO";
+}
+```
+Here's a breakdown of the function:
+```javascript
+let leftSum = 0;
+```
+- The `leftSum` variable tracks the cumulative sum of elements on the left side of the current element.
+
+```javascript
+let totalSum = arr.reduce((acc, val) => acc + val, 0);
+```
+- Using the `reduce` method, we calculate the total sum of all elements in `arr`.
+
+```javascript
+for (let i = 0; i < arr.length; i++) {
+```
+- Loop through each element in `arr`.
+
+```javascript
+let rightSum = totalSum - leftSum - arr[i];
+```
+- Calculate the sum of elements on the right side of the current element. We achieve this by subtracting the `leftSum` and the current element's value from `totalSum`.
+
+```javascript
+if (leftSum === rightSum) {
+    return "YES";
+}
+```
+- If the left and right sums are equal for the current element, the array has a balance, and we return "YES".
+
+```javascript
+else {
+    leftSum += arr[i];
+}
+```
+- If a balance is not found for the current element, update the `leftSum` by adding the current element's value.
+
+7. **Conclude the Function**:
+```javascript
+return "NO";
+```
+- If the loop completes without finding a balance, return "NO".
+****
