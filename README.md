@@ -353,7 +353,7 @@ Sure thing! Here's the explanation for the function formatted for a GitHub readm
 ---
 
 ## 8. Sherlock and the Valid String
-  - [Problem](hhttps://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?isFullScreen=true)
+  - [Problem](https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?isFullScreen=true)
   - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/sherlock-and-valid-string.js)
   - Explanation:
   > The `isValid` function checks if a string `s` can be considered "valid". A string is valid if all characters of the string appear the same number of times or if it can become valid by removing just 1 character at one position. If the string is valid, the function returns "YES", otherwise it returns "NO".
@@ -421,4 +421,33 @@ else {
 }
 ```
 - If there are more than two unique frequencies, it's impossible for the string to be valid as per the given constraints, so the function returns "NO".
+****
+
+Sure, here's the explanation for the function formatted for a GitHub readme:
+
+---
+
+## 9. Find Median
+  - [Problem](https://www.hackerrank.com/challenges/find-the-median/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/find-the-median.js)
+  - Explanation:
+  > The `findMedian` function takes an array `arr` and returns its median value. The median of a list of numbers is the number that appears right in the middle of the list when it's sorted in ascending order. For an array of odd length, it's the middle number. The given problem only has arrays of odd length.
+
+```javascript
+function findMedian(arr) {
+    arr.sort((a, b) => a - b);
+    return arr[Math.floor(arr.length / 2)];
+}
+```
+Here's a breakdown of the function:
+```javascript
+arr.sort((a, b) => a - b);
+```
+- The function first sorts the array `arr` in ascending order. It uses JavaScript's `sort` method with a comparator function `(a, b) => a - b` to ensure numerical sorting.
+
+```javascript
+return arr[Math.floor(arr.length / 2)];
+```
+- After sorting, the median value can be found at the middle index of the array. 
+- For an array with an odd length, `Math.floor(arr.length / 2)` gives the exact middle index. 
 ****
