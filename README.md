@@ -447,9 +447,6 @@ return arr[Math.floor(arr.length / 2)];
 - After sorting, the median value can be found at the middle index of the array. 
 - For an array with an odd length, `Math.floor(arr.length / 2)` gives the exact middle index. 
 ****
-Certainly! Here's the explanation for the `closestNumbers` function in the format suitable for a GitHub readme:
-
----
 
 ## 10. Closest Numbers
   - [Problem](https://www.hackerrank.com/challenges/closest-numbers/problem?isFullScreen=true)
