@@ -658,9 +658,55 @@ else {
 ```
 - If a balance is not found for the current element, update the `leftSum` by adding the current element's value.
 
-7. **Conclude the Function**:
 ```javascript
 return "NO";
 ```
 - If the loop completes without finding a balance, return "NO".
+****
+
+## 14. Minimum Absolute Difference
+  - [Problem](https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/minimum-absolute-difference-in-an-array.js)
+  - Explanation:
+  > The `minimumAbsoluteDifference` function is designed to find the minimum absolute difference between any two elements in the given array `arr`.
+
+```javascript
+function minimumAbsoluteDifference(arr) {
+    arr.sort((a, b) => a - b);
+    let minValue = Infinity;
+    for (let i = 0; i < arr.length - 1; i++) {
+        let absValue = Math.abs(arr[i] - arr[i + 1]);
+        if (absValue < minValue) {
+            minValue = absValue;
+        }
+    }
+    return minValue;
+}
+```
+Here's a breakdown of the function:
+```javascript
+arr.sort((a, b) => a - b);
+let minValue = Infinity;
+```
+- Sorting the array in non-decreasing order is the initial step. By doing this, the numbers with the least difference between them will be adjacent to each other.
+- `minValue` is initialized to `Infinity`, ensuring that any absolute difference calculated will be smaller than this initial value.
+
+```javascript
+for (let i = 0; i < arr.length - 1; i++) {
+	let absValue = Math.abs(arr[i] - arr[i + 1]);
+```
+- We loop through the sorted array, considering every adjacent pair of numbers.
+- For each adjacent pair, we calculate the absolute difference between them.
+
+```javascript
+if (absValue < minValue) {
+    minValue = absValue;
+}
+```
+- If the absolute difference of the current adjacent pair is smaller than our current `minValue`, then we update `minValue`.
+
+```javascript
+return minValue;
+```
+- Once the loop completes, we have the minimum absolute difference, which we return.
 ****
