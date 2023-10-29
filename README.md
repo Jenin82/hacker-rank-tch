@@ -710,3 +710,31 @@ return minValue;
 ```
 - Once the loop completes, we have the minimum absolute difference, which we return.
 ****
+
+## 15. Marc's Cakewalk
+  - [Problem](https://www.hackerrank.com/challenges/marcs-cakewalk/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/marcs-cakewalk.js)
+  - Explanation:
+  > The `marcsCakewalk` function determines the minimum number of miles Marc must walk to maintain his weight after consuming the cupcakes described by the `calorie` array. Marc can consume the cupcakes in any order. For every calorie he takes in, he must walk 2^(number of cupcakes already eaten) miles to burn it off. To minimize the total miles he needs to walk, Marc should consume the cupcakes with the most calories first.
+
+```javascript
+function marcsCakewalk(calorie) {
+     return calorie
+	 	.sort((a, b) => b - a)
+		.reduce((acc, val, i) => acc + (Math.pow(2, i) * val), 0);
+}
+```
+Here's a breakdown of the function:
+```javascript
+calorie.sort((a, b) => b - a)
+```
+- Sorting the `calorie` array in descending order ensures that Marc consumes the cupcakes with the highest calories first. This is essential to minimize the walking distance.
+
+```javascript
+.reduce((acc, val, i) => acc + (Math.pow(2, i) * val), 0);
+```
+- We use the `reduce` method to calculate the total walking distance Marc needs to cover.
+- For each calorie value `val` in the array (which is now in descending order), Marc needs to walk `Math.pow(2, i) * val` miles, where `i` is the index (or the number of cupcakes he has already eaten).
+- `acc` accumulates the total miles, starting at `0` (as set by the last parameter of `reduce`).
+- The result of the `reduce` method is the total distance Marc needs to walk, and this is directly returned by the function.
+****
