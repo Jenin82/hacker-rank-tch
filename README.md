@@ -348,9 +348,6 @@ return dollar;
 ```
 - After processing all characters in `s`, the function returns the total cost, which is stored in the `dollar` variable.
 ****
-Sure thing! Here's the explanation for the function formatted for a GitHub readme:
-
----
 
 ## 8. Sherlock and the Valid String
   - [Problem](https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?isFullScreen=true)
