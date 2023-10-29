@@ -738,3 +738,46 @@ calorie.sort((a, b) => b - a)
 - `acc` accumulates the total miles, starting at `0` (as set by the last parameter of `reduce`).
 - The result of the `reduce` method is the total distance Marc needs to walk, and this is directly returned by the function.
 ****
+
+## 16. Grid Challenge
+  - [Problem](https://www.hackerrank.com/challenges/grid-challenge/problem?isFullScreen=true)
+  - [Solution](https://github.com/Jenin82/hacker-rank-tch/blob/main/grid-challenge.js)
+  - Explanation:
+  > The `gridChallenge` function determines whether the rows of a grid can be sorted (in non-decreasing order) such that the resultant columns are also sorted in non-decreasing order. If it's possible, the function returns 'YES', otherwise it returns 'NO'.
+
+```javascript
+function gridChallenge(grid) {
+    for (let i = 0; i < grid.length; i++) {
+        grid[i] = grid[i].split("").sort().join("");
+        if (i !== 0) {
+            for (let col = 0; col < grid[i].length; col++) {
+                if (grid[i][col].localeCompare(grid[i - 1][col]) < 0) {
+                    return 'NO';
+                }
+            }
+        }
+    }
+    return 'YES';
+}
+```
+Here's a breakdown of the function:
+```javascript
+grid[i] = grid[i].split("").sort().join("");
+```
+- Each row (string) in the grid is split into an array of characters, sorted alphabetically, and then joined back into a string. This ensures each row is in non-decreasing order.
+
+```javascript
+for (let col = 0; col < grid[i].length; col++) {
+    if (grid[i][col].localeCompare(grid[i - 1][col]) < 0) {
+        return 'NO';
+    }
+}
+```
+- After the rows are sorted, we need to check if the columns are also sorted.
+- Starting from the second row (`i !== 0`), we compare each character in the current row with the corresponding character in the previous row. If any character in the current row is less than the corresponding character in the previous row, the grid columns aren't sorted in non-decreasing order. Thus, we return 'NO'.
+
+```javascript
+return 'YES';
+```
+- If the loop completes without returning 'NO', it means the columns are in non-decreasing order after the rows have been sorted. So, we return 'YES'.
+****
